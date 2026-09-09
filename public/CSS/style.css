@@ -1,0 +1,797 @@
+/* =========================================
+   COQUETTE PRODUCT MANAGEMENT THEME 🎀
+   CLEANED VERSION
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5d4650;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(255, 239, 190, 0.50),
+            transparent 24%),
+
+        radial-gradient(circle at 85% 75%,
+            rgba(255, 218, 232, 0.60),
+            transparent 28%),
+
+        radial-gradient(#efbfd0 1px, transparent 1px),
+
+        #fff8fb;
+
+    background-size:
+        auto,
+        auto,
+        24px 24px,
+        auto;
+}
+
+/* =========================================
+   GENERAL
+   ========================================= */
+
+h1,
+h2,
+h3 {
+    color: #a75d78;
+}
+
+a {
+    color: #a75d78;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p {
+    color: #9a7f89;
+}
+
+/* =========================================
+   PRODUCT LIST PAGE
+   ========================================= */
+
+body:has(table) {
+    padding: 32px 28px;
+}
+
+/* Product Management title */
+
+body:has(table) > h1,
+body:has(table) > h2 {
+    text-align: center;
+
+    font-size: 28px;
+
+    margin:
+        0
+        auto
+        16px;
+
+    color: #a75d78;
+}
+
+body:has(table) > h1::before,
+body:has(table) > h2::before {
+    content: "🎀 ";
+}
+
+/* Add Product + Logout */
+
+body:has(table) > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    margin:
+        0
+        4px
+        20px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+/* Add Product */
+
+body:has(table) > a:first-of-type {
+    margin-left: calc(50% - 110px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0ad,
+            #f7d978
+        );
+
+    color: #705728;
+
+    border: 1px solid #e7c65f;
+
+    box-shadow:
+        0 4px 12px
+        rgba(200, 165, 65, 0.17);
+}
+
+body:has(table) > a:first-of-type:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe991,
+            #f4d15d
+        );
+}
+
+/* Logout */
+
+body:has(table) > a:nth-of-type(2) {
+    background: #ffffff;
+
+    color: #a45a74;
+
+    border: 1px solid #e7a9bf;
+
+    box-shadow:
+        0 4px 12px
+        rgba(180, 100, 130, 0.10);
+}
+
+body:has(table) > a:nth-of-type(2):hover {
+    background: #ffe5ee;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   PRODUCT TABLE
+   ========================================= */
+
+table {
+    width: min(100%, 1150px);
+
+    margin:
+        0
+        auto
+        30px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1.5px solid #efc4d3;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(176, 89, 124, 0.10);
+}
+
+th {
+    padding: 14px 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffe4ed,
+            #fff0bd,
+            #ffe4ed
+        );
+
+    color: #92576d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #ecc2d0;
+}
+
+td {
+    padding: 15px;
+
+    color: #624e56;
+
+    font-size: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-bottom:
+        1px solid #f3e2e8;
+}
+
+tbody tr:hover td {
+    background: #fff9e8;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Edit / Delete */
+
+td a {
+    display: inline-flex;
+
+    padding: 7px 14px;
+
+    margin: 2px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+/* Edit */
+
+td a:first-child {
+    background: #ffe2ec;
+
+    color: #9b5670;
+
+    border:
+        1px solid #ebb6c8;
+}
+
+td a:first-child:hover {
+    background: #ffd2e0;
+
+    transform: translateY(-1px);
+}
+
+/* Delete */
+
+td a:last-child {
+    background: #fff0f3;
+
+    color: #b14f6d;
+
+    border:
+        1px solid #efbccb;
+}
+
+td a:last-child:hover {
+    background: #ffdce5;
+
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   ADD / EDIT PRODUCT PAGE
+   Only forms with textarea
+   ========================================= */
+
+body:has(form textarea) {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+/* Add Product / Edit Product title */
+
+body:has(form textarea) > h1,
+body:has(form textarea) > h2 {
+    text-align: center;
+
+    font-size: 27px;
+
+    color: #a75d78;
+
+    margin:
+        0
+        0
+        26px;
+}
+
+body:has(form textarea) > h1::before,
+body:has(form textarea) > h2::before {
+    content: "🎀 ";
+}
+
+/* Form card */
+
+body:has(form textarea) form {
+    width: 90%;
+
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    padding:
+        48px
+        30px
+        30px;
+
+    position: relative;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border:
+        1.5px solid #efc1d1;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 14px 35px
+        rgba(176, 89, 124, 0.12);
+}
+
+/* Bow on card */
+
+body:has(form textarea) form::before {
+    content: "🎀";
+
+    position: absolute;
+
+    top: -28px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff9fb;
+
+    border:
+        1.5px solid #efbfd0;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 5px 14px
+        rgba(180, 100, 130, 0.10);
+}
+
+/* No fake FORM text */
+body:has(form textarea) form::after {
+    content: none;
+}
+
+/* Labels */
+
+body:has(form textarea) label {
+    display: block;
+
+    margin:
+        0
+        0
+        7px;
+
+    color: #955a6f;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+body:has(form textarea) label::before {
+    content: "♡ ";
+
+    color: #e59ab5;
+}
+
+/* Inputs */
+
+body:has(form textarea) input,
+body:has(form textarea) textarea,
+body:has(form textarea) select {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding:
+        12px
+        14px;
+
+    background: #fffafb;
+
+    color: #5d4650;
+
+    border:
+        1.5px solid #efc1d1;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+body:has(form textarea) textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+body:has(form textarea) input:focus,
+body:has(form textarea) textarea:focus,
+body:has(form textarea) select:focus {
+    background: #ffffff;
+
+    border-color: #db8eaa;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(229, 153, 182, 0.15);
+}
+
+/* Add / Update button */
+
+body:has(form textarea) button,
+body:has(form textarea) input[type="submit"] {
+    width: 100%;
+
+    margin-top: 3px;
+
+    padding: 12px;
+
+    border:
+        1px solid #ebce67;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0ad,
+            #f7d978
+        );
+
+    color: #6d5726;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 14px
+        rgba(199, 164, 62, 0.18);
+
+    transition: 0.2s ease;
+}
+
+body:has(form textarea) button:hover,
+body:has(form textarea) input[type="submit"]:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe990,
+            #f4d15d
+        );
+}
+
+/* Back link */
+
+body:has(form textarea) form + a {
+    display: inline-flex;
+
+    margin-top: 17px;
+
+    padding: 9px 17px;
+
+    border-radius: 999px;
+
+    background: #ffe5ee;
+
+    border:
+        1px solid #ebb5c8;
+
+    color: #9b5670;
+
+    font-size: 13px;
+}
+
+body:has(form textarea) form + a:hover {
+    background: #ffd4e2;
+}
+
+/* =========================================
+   LOGIN PAGE
+   Only form containing PASSWORD
+   ========================================= */
+
+body:has(form input[type="password"]) {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+/* Login card */
+
+body:has(form input[type="password"]) form {
+    width: 90%;
+    max-width: 410px;
+
+    position: relative;
+
+    margin: 0;
+
+    padding:
+        62px
+        32px
+        32px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border:
+        1.5px solid #efbfd0;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(175, 88, 123, 0.12);
+}
+
+/* LOG IN FORM title */
+
+body:has(form input[type="password"])
+form::before {
+
+    content: "LOG IN FORM";
+
+    display: block;
+
+    text-align: center;
+
+    color: #a95773;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 26px;
+}
+
+/* Bow */
+
+body:has(form input[type="password"])
+form::after {
+
+    content: "🎀";
+
+    position: absolute;
+
+    top: -28px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fffafb;
+
+    border:
+        1.5px solid #efbfd0;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(174, 91, 124, 0.12);
+}
+
+/* Login inputs */
+
+body:has(form input[type="password"])
+input[type="text"],
+
+body:has(form input[type="password"])
+input[type="password"] {
+
+    width: 100%;
+
+    display: block;
+
+    padding:
+        13px
+        16px;
+
+    margin-bottom: 16px;
+
+    background: #fffafb;
+
+    border:
+        1.5px solid #efbfd0;
+
+    border-radius: 13px;
+
+    color: #624c55;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+body:has(form input[type="password"])
+input:focus {
+
+    background: #ffffff;
+
+    border-color: #dc8faa;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(229, 153, 182, 0.15);
+}
+
+/* Login button */
+
+body:has(form input[type="password"])
+button,
+
+body:has(form input[type="password"])
+input[type="submit"] {
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 12px;
+
+    border:
+        1px solid #ebce67;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0ad,
+            #f7d978
+        );
+
+    color: #6d5726;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 14px
+        rgba(199, 164, 62, 0.18);
+
+    transition: 0.2s ease;
+}
+
+body:has(form input[type="password"])
+button:hover,
+
+body:has(form input[type="password"])
+input[type="submit"]:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe990,
+            #f4d15d
+        );
+}
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.error,
+.alert {
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    padding: 11px 14px;
+
+    background: #ffe6ee;
+
+    color: #a44967;
+
+    border:
+        1px solid #efb6c9;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body:has(table) {
+        padding: 24px 14px;
+    }
+
+    body:has(form textarea) form,
+    body:has(form input[type="password"]) form {
+        width: 94%;
+
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    body:has(table) > a:first-of-type {
+        margin-left: 0;
+    }
+}
